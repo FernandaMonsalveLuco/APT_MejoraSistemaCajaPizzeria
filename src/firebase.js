@@ -4,7 +4,7 @@ import { getFirestore } from "firebase/firestore";
 import { getAuth } from "firebase/auth";  // Importa getAuth
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDQ71v0_mibqPEeEfbTda6EE2N_g6OO6aI",
+  //apiKey: "AIzaSyDQ71v0_mibqPEeEfbTda6EE2N_g6OO6aI",
   authDomain: "databasepizzerianostra.firebaseapp.com",
   databaseURL: "https://databasepizzerianostra-default-rtdb.firebaseio.com",
   projectId: "databasepizzerianostra",
