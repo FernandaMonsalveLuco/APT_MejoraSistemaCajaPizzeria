@@ -1,0 +1,249 @@
+/* Fondo del login */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: url('C:\Users\ferna\FASTPOS\fastpos-pizzeria\src\pages\FONDOLOGIN.png') no-repeat center center fixed;
+  background-size: cover;
+  font-family: Arial, sans-serif;
+  padding: 1rem; /* para que no se pegue a los bordes en móviles */
+}
+
+/* Caja del formulario */
+.login-box {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+  width: 320px;
+  text-align: center;
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+/* Animación de entrada */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Título */
+.login-box h2 {
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+  color: #222;
+}
+
+/* Inputs */
+.login-box input[type="text"],
+.login-box input[type="password"] {
+  width: 90%;
+  padding: 12px;
+  margin: 10px 0;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  outline: none;
+  font-size: 1rem;
+  transition: border 0.3s;
+}
+
+.login-box input:focus {
+  border-color: #ff6600;
+}
+
+/* Botón de ingresp*/
+.login-box button {
+  width: 100%;
+  padding: 12px;
+  background: #ff6600;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-top: 10px;
+  transition: background 0.3s;
+}
+
+.login-box button:hover {
+  background: #e65c00;
+}
+
+/* Link recuperar contraseña */
+.login-box p {
+  margin-top: 12px;
+  font-size: 0.9rem;
+}
+
+.login-box a {
+  color: red;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.login-box a:hover {
+  text-decoration: underline;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+  .login-box {
+    width: 90%;
+    padding: 1.5rem;
+  }
+
+  .login-box h2 {
+    font-size: 1.3rem;
+  }
+
+  .login-box input,
+  .login-box button {
+    font-size: 0.95rem;
+    padding: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .login-container {
+    padding: 0.5rem;
+  }
+
+  .login-box {
+    width: 100%;
+    padding: 1rem;
+    border-radius: 10px;
+  }
+
+  .login-box h2 {
+    font-size: 1.2rem;
+  }
+
+  .login-box input,
+  .login-box button {
+    font-size: 0.9rem;
+    padding: 8px;
+  }
+}
+/* Contenedor principal */
+.caja-container {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 20px;
+  padding: 20px;
+  height: 100vh;
+  background: url('C:\Users\ferna\FASTPOS\fastpos-pizzeria\src\pages\FONDOLOGIN.png') no-repeat center center fixed;
+  background-size: cover;
+  font-family: Arial, sans-serif;
+}
+
+/* 🔸 Sección izquierda (productos) */
+.productos-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+}
+
+.producto-btn {
+  background: #f58220;
+  color: #fff;
+  padding: 20px;
+  border-radius: 15px;
+  font-size: 1rem;
+  font-weight: bold;
+  text-align: center;
+  cursor: pointer;
+  border: none;
+  transition: transform 0.2s, background 0.3s;
+}
+
+.producto-btn:hover {
+  background: #e6731a;
+  transform: scale(1.05);
+}
+
+/* Sección de elementos del pedido */
+.orden-box {
+  background: #fff8f2;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.orden-box h2 {
+  color: #d2691e;
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+}
+
+.orden-header {
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.orden-list {
+  margin-bottom: 10px;
+  font-size: 0.95rem;
+}
+
+.orden-total {
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+.orden-box button {
+  width: 100%;
+  padding: 10px;
+  background: #f58220;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-top: 10px;
+}
+
+.orden-box button:hover {
+  background: #e6731a;
+}
+
+/* Menú inferior de categorías */
+.menu-categorias {
+  grid-column: 1 / span 2;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); /* 5 columnas iguales */
+  gap: 15px;
+  background: #fff8f2;
+  padding: 15px;
+  border-radius: 15px;
+  margin-top: 20px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+/* Botones del menú */
+.menu-categorias button {
+  width: 100%;             
+  height: 50px; 
+  background: #f58220;
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  font-size: 0.95rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.menu-categorias button:hover {
+  background: #e6731a;
+  transform: scale(1.05);
+}
+
+/*Botón de configuración*/
+.config-btn {
+  background: #fff;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
