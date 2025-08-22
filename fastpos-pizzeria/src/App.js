@@ -1,18 +1,18 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { OrderProvider } from "./context/OrderContext";
-import Caja from "./pages/Caja";
+import React, { useState } from "react";
 import Login from "./pages/Login";
+import Caja from "./pages/Caja";
 
 function App() {
+  const [loggedIn, setLoggedIn] = useState(false);
+
   return (
-    <OrderProvider>
-      <Router>
-        <Routes>
-          <Route path="/" element={<Caja />} />
-          <Route path="/login" element={<Login />} />
-        </Routes>
-      </Router>
-    </OrderProvider>
+    <>
+      {loggedIn ? (
+        <Caja />
+      ) : (
+        <Login onLogin={() => setLoggedIn(true)} />
+      )}
+    </>
   );
 }
 
