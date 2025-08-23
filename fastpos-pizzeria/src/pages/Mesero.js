@@ -29,7 +29,6 @@ const Mesero = () => {
   return (
     <div className="flex flex-col md:flex-row min-h-screen bg-gray-100 p-4 gap-4">
       
-      {/* Selección de mesas */}
       <div className="md:w-1/5 bg-white p-4 rounded-xl shadow-md">
         <h2 className="font-bold text-xl mb-4">Mesas</h2>
         {mesas.map((mesa) => (
@@ -47,14 +46,12 @@ const Mesero = () => {
         ))}
       </div>
 
-      {/* Productos */}
       <div className="md:w-2/5 grid grid-cols-2 gap-4">
         {productos.map((prod) => (
           <ProductCard key={prod.id} product={prod} />
         ))}
       </div>
 
-      {/* Resumen de pedido */}
       <div className="md:w-2/5 bg-white p-4 rounded-xl shadow-md flex flex-col">
         <h2 className="font-bold text-xl mb-4">
           {mesaSeleccionada ? mesaSeleccionada.nombre : "Seleccione una mesa"}

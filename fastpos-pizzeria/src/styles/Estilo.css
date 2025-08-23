@@ -1,6 +1,7 @@
 /* Fondo del login */
 .login-container {
   display: flex;
+  background-color: #f58220;
   justify-content: center;
   align-items: center;
   height: 100vh;
@@ -10,7 +11,7 @@
   padding: 1rem;
 }
 
-/* Caja del formulario */
+/* Caja del formulario login */
 .login-box {
   background: #fff;
   padding: 2rem;
@@ -21,20 +22,18 @@
   animation: fadeIn 0.6s ease-in-out;
 }
 
-/* Animación de entrada */
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(-20px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* Título */
 .login-box h2 {
   margin-bottom: 1.5rem;
   font-size: 1.5rem;
   color: #222;
 }
 
-/* Inputs */
+/* Inputs login */
 .login-box input[type="text"],
 .login-box input[type="password"] {
   width: 90%;
@@ -85,7 +84,7 @@
   text-decoration: underline;
 }
 
-/* 📱 Responsivo */
+/* Responsivo */
 @media (max-width: 768px) {
   .login-box {
     width: 90%;
@@ -125,7 +124,7 @@
   }
 }
 
-/* === CONTENEDOR PRINCIPAL === */
+/* Contenedor principal */
 .caja-container {
   display: grid;
   grid-template-columns: 2fr 1fr;
@@ -134,9 +133,10 @@
   background: #f9fafc;
   min-height: 100vh;
   box-sizing: border-box;
+  background-color: #e65c00;
 }
 
-/* === PRODUCTOS === */
+/*  Tarjetas de productos */
 .productos-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
@@ -169,7 +169,7 @@
   box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 }
 
-/* === ORDEN === */
+/* Orden */
 .orden-box {
   background: #fff;
   border-radius: 20px;
@@ -248,7 +248,7 @@
   box-shadow: 0 4px 12px rgba(0,0,0,0.2);
 }
 
-/* === MENÚ CATEGORÍAS === */
+/* Navbar */
 .menu-categorias {
   grid-column: 1 / span 2;
   display: flex;
@@ -285,7 +285,6 @@
   transform: translateY(-2px);
 }
 
-/* === RESPONSIVE === */
 @media (max-width: 900px) {
   .caja-container {
     grid-template-columns: 1fr;

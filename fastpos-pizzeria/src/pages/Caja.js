@@ -29,7 +29,6 @@ const Caja = () => {
     }
   };
 
-  // 🔹 Remueve 1 unidad o el producto si cantidad = 1
   const handleRemoveProduct = (id) => {
     const existing = order.find((item) => item.id === id);
     if (existing.cantidad > 1) {
@@ -46,7 +45,6 @@ const Caja = () => {
 
   return (
     <div className="caja-container">
-      {/* Menú de productos */}
       <div className="productos-grid">
         {productos.map((prod) => (
           <div key={prod.id} className="producto-card" onClick={() => handleAddProduct(prod)}>
@@ -56,9 +54,8 @@ const Caja = () => {
         ))}
       </div>
 
-      {/* Orden */}
       <div className="orden-box">
-        <h2>🧾 Orden</h2>
+        <h2>Orden</h2>
         <div className="orden-header">
           <span>ARTÍCULO</span>
           <span>PRECIO</span>

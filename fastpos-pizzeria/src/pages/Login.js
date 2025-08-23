@@ -9,6 +9,9 @@ function Login({ onLogin }) {
         <input type="text" placeholder="Usuario" />
         <input type="password" placeholder="Contraseña" />
         <button onClick={onLogin}>Entrar</button>
+        <p>
+          ¿Olvidaste tu contraseña? <a href="#">Recuperar</a>
+        </p>
       </div>
     </div>
   );
