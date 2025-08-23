@@ -14,70 +14,88 @@ const productos = [
 ];
 
 const Caja = () => {
-  const { order, addToOrder, removeFromOrder, clearOrder } = useContext(OrderContext);
+  const { order, addToOrder, removeFromOrder, clearOrder, setOrder } = useContext(OrderContext);
 
-  const total = order.reduce((acc, item) => acc + item.precio, 0);
+  // 🔹 Función modificada para acumular cantidad
+  const handleAddProduct = (prod) => {
+    const existing = order.find((item) => item.id === prod.id);
+    if (existing) {
+      const newOrder = order.map((item) =>
+        item.id === prod.id ? { ...item, cantidad: item.cantidad + 1 } : item
+      );
+      setOrder(newOrder);
+    } else {
+      setOrder([...order, { ...prod, cantidad: 1 }]);
+    }
+  };
+
+  // 🔹 Remueve 1 unidad o el producto si cantidad = 1
+  const handleRemoveProduct = (id) => {
+    const existing = order.find((item) => item.id === id);
+    if (existing.cantidad > 1) {
+      const newOrder = order.map((item) =>
+        item.id === id ? { ...item, cantidad: item.cantidad - 1 } : item
+      );
+      setOrder(newOrder);
+    } else {
+      setOrder(order.filter((item) => item.id !== id));
+    }
+  };
+
+  const total = order.reduce((acc, item) => acc + item.precio * item.cantidad, 0);
 
   return (
     <div className="caja-container">
-
       {/* Menú de productos */}
       <div className="productos-grid">
         {productos.map((prod) => (
-          <button
-            key={prod.id}
-            className="producto-btn"
-            onClick={() => addToOrder(prod)}
-          >
-            {prod.nombre} - ${prod.precio.toFixed(2)}
-          </button>
+          <div key={prod.id} className="producto-card" onClick={() => handleAddProduct(prod)}>
+            <h3>{prod.nombre}</h3>
+            <p>${prod.precio.toFixed(2)}</p>
+          </div>
         ))}
       </div>
 
       {/* Orden */}
       <div className="orden-box">
-        <h2>Orden</h2>
+        <h2>🧾 Orden</h2>
         <div className="orden-header">
           <span>ARTÍCULO</span>
           <span>PRECIO</span>
         </div>
         <div className="orden-list">
           {order.length === 0 ? (
-            <p>No hay productos</p>
+            <p className="orden-vacia">No hay productos</p>
           ) : (
-            order.map((item, index) => (
-              <div key={index} className="flex justify-between mb-1">
-                <span>{item.nombre}</span>
-                <span>${item.precio.toFixed(2)}</span>
+            order.map((item) => (
+              <div key={item.id} className="orden-item">
+                <span>{item.cantidad} x {item.nombre}</span>
+                <span>${(item.precio * item.cantidad).toFixed(2)}</span>
                 <button
-                  onClick={() => removeFromOrder(index)}
-                  className="text-red-500 ml-2"
+                  onClick={() => handleRemoveProduct(item.id)}
+                  className="btn-remove"
                 >
-                  ❌
+                  ➖
                 </button>
               </div>
             ))
           )}
         </div>
-        <p className="orden-total">Precio total $: {total.toFixed(2)}</p>
-        <p className="orden-total">IVA $: {(total * 0.19).toFixed(2)}</p>
-        <button
-          onClick={clearOrder}
-          className="bg-green-500 text-white px-4 py-2 rounded mt-2 w-full"
-        >
-          Ingresar
+        <div className="orden-totales">
+          <p>Total: <strong>${total.toFixed(2)}</strong></p>
+          <p>IVA (19%): <strong>${(total * 0.19).toFixed(2)}</strong></p>
+        </div>
+        <button onClick={clearOrder} className="btn-confirmar">
+          Confirmar Orden
         </button>
       </div>
-
-      {/* Menú inferior de categorías */}
       <div className="menu-categorias">
-        <button>Pizzas</button>
-        <button>Bebidas</button>
-        <button>Acompañamiento</button>
-        <button>Combos</button>
-        <button>Administración</button>
+        <button><i className="fas fa-pizza-slice"></i><span>Pizzas</span></button>
+        <button><i className="fas fa-glass-martini-alt"></i><span>Bebidas</span></button>
+        <button><i className="fas fa-bread-slice"></i><span>Acompañamiento</span></button>
+        <button><i className="fas fa-box"></i><span>Combos</span></button>
+        <button><i className="fas fa-cogs"></i><span>Admin</span></button>
       </div>
-
     </div>
   );
 };
