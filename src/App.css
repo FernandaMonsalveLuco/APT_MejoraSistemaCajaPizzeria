@@ -1,0 +1,120 @@
+/* src/App.css */
+
+/* Reset básico y estilos generales */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: #f5f5f5;
+  color: #333;
+  line-height: 1.5;
+}
+
+/* Contenedor principal */
+#root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* Formularios */
+form {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  width: 100%;
+  max-width: 400px;
+}
+
+/* Inputs */
+input {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+/* Botones */
+button {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+/* Mensajes de error */
+p {
+  color: red;
+  margin-top: 10px;
+  text-align: center;
+}
+
+/* Titulos */
+h2 {
+  text-align: center;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+/* Contenedor Dashboard */
+.dashboard-container {
+  display: flex;
+  min-height: 80vh;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  overflow: hidden;
+}
+
+/* Menú lateral */
+.menu {
+  display: flex;
+  flex-direction: column;
+  width: 150px;
+  background-color: #2c3e50;
+  padding: 10px;
+}
+
+.menu button {
+  background-color: #34495e;
+  color: #ecf0f1;
+  border: none;
+  padding: 10px;
+  margin: 5px 0;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: 0.2s;
+}
+
+.menu button:hover {
+  background-color: #3d566e;
+}
+
+.menu button.active {
+  background-color: #1abc9c;
+}
+
+/* Contenido principal */
+.dashboard-content {
+  flex-grow: 1;
+  padding: 20px;
+}

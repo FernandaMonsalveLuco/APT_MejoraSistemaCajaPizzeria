@@ -1,0 +1,16 @@
+directories:
+  output: dist
+  buildResources: build
+files:
+  - filter:
+      - build/**/*
+      - '**/*'
+extraMetadata:
+  main: build/electron.js
+appId: com.fastpos.desktop
+productName: FastPOS Desktop
+win:
+  target: nsis
+  icon: public/icon.ico
+extends: react-cra
+electronVersion: 38.1.2
